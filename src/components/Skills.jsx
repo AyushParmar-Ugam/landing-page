@@ -1,31 +1,28 @@
 import React from "react";
-
-const SKILLS = [
-  { name: "JavaScript", level: 90 },
-  { name: "React", level: 85 },
-  { name: "HTML & CSS", level: 95 },
-  { name: "TypeScript", level: 65 },
-  { name: "Node.js", level: 70 }
-];
+import SectionHeading from "./ui/SectionHeading";
+import skills from "../data/skills";
 
 export default function Skills() {
   return (
     <div>
-      <h3>Skills</h3>
-      <p>Technologies and tools I frequently use.</p>
+      <SectionHeading
+        eyebrow="skills"
+        title="Technologies and tools I reach for"
+        description="A mix of front-end craft and the AI/automation tools that turn a static site into something that works on its own."
+      />
 
-      <ul className="skills-list">
-        {SKILLS.map((s) => (
-          <li key={s.name} className="skill">
-            <div className="skill-header">
-              <span>{s.name}</span>
-              <span className="skill-percent">{s.level}%</span>
+      <ul className="grid gap-6 sm:grid-cols-2">
+        {skills.map((skill) => (
+          <li key={skill.name}>
+            <div className="mb-2 flex items-baseline justify-between">
+              <span className="text-sm font-medium text-ink">{skill.name}</span>
+              <span className="font-mono text-xs text-muted">{skill.level}%</span>
             </div>
-            <div className="skill-bar" aria-hidden>
+            <div className="h-2 w-full overflow-hidden rounded-full bg-teal-50">
               <div
-                className="skill-fill"
-                style={{ width: `${s.level}%` }}
-              ></div>
+                className="h-full rounded-full bg-gradient-to-r from-teal-600 to-gold-400"
+                style={{ width: `${skill.level}%` }}
+              />
             </div>
           </li>
         ))}

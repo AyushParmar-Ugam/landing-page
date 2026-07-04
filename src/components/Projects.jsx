@@ -1,26 +1,20 @@
 import React from "react";
+import SectionHeading from "./ui/SectionHeading";
+import ProjectCard from "./ProjectCard";
 import projects from "../data/projects";
 
 export default function Projects() {
   return (
     <div>
-      <h3>Projects</h3>
-      <p>Selected projects to show the type of work I do.</p>
+      <SectionHeading
+        eyebrow="projects"
+        title="Selected work"
+        description="A mix of client websites and the automation projects I enjoy most — the ones that keep saving time long after launch."
+      />
 
-      <div className="projects-grid">
-        {projects.map((p) => (
-          <article key={p.id} className="project-card">
-            <h4>{p.title}</h4>
-            <p>{p.description}</p>
-            <div className="project-meta">
-              <div className="tech">
-                {p.tech.map((t) => (
-                  <span key={t} className="tag">{t}</span>
-                ))}
-              </div>
-              <a className="link" href={p.link}>View</a>
-            </div>
-          </article>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
         ))}
       </div>
     </div>

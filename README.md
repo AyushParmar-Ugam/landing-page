@@ -1,35 +1,71 @@
-# Simple React Developer Landing Page
+# Developer & AI Automation Portfolio
 
-This is a minimal, well-structured React landing page with sections:
-- Hero
-- About
-- Skills
-- Projects
-- Contact
+A React + Tailwind CSS landing page for a freelance web developer / small
+agency positioning, built to win client and agency work in web development
+and AI automation.
 
-Quick start (using Create React App):
-1. npx create-react-app my-portfolio
-2. Replace the `src/` and `public/index.html` files with the files from this repo.
-3. cd my-portfolio
-4. npm start
+## Sections
 
-Project structure:
-- public/
-  - index.html
-- src/
-  - components/
-    - Hero.jsx
-    - About.jsx
-    - Skills.jsx
-    - Projects.jsx
-    - Contact.jsx
-  - data/
-    - projects.js
-  - styles/
-    - global.css
-  - App.jsx
-  - index.js
+- **Hero** — value proposition plus a small visual of an automation
+  pipeline (input → agent → output).
+- **About** — bio and quick facts.
+- **Skills** — tech stack, including AI automation tools.
+- **Projects** — mix of web and AI-automation case studies.
+- **Blog** — short posts on AI, AI automation, and agentic AI.
+- **Contact** — client-side contact form (no backend yet).
 
-Notes:
-- The contact form is client-side only (no backend). Replace the submit handler to connect to an API or email service.
-- Keep styling in `global.css` for simplicity; consider CSS modules or styled-components for larger projects.
+## Project structure
+
+```
+src/
+  components/
+    layout/       Header, Footer, Container, Section (page scaffolding)
+    ui/           Button, Tag, SectionHeading, PipelineDivider (reusable primitives)
+    Hero.jsx
+    About.jsx
+    Skills.jsx
+    Projects.jsx
+    ProjectCard.jsx
+    Blogs.jsx
+    BlogCard.jsx
+    Contact.jsx
+  data/
+    projects.js
+    blogs.js
+    skills.js
+  styles/
+    index.css     Tailwind entry point
+  App.jsx
+  index.js
+```
+
+## Design
+
+- **Colors**: warm paper background (`#F6F5F1`), near-black ink text,
+  a deep teal (`#2F6F5E`) as the primary brand color, and a muted gold
+  (`#E7B84B`) used sparingly as an accent.
+- **Type**: Space Grotesk for headings, Inter for body copy, IBM Plex
+  Mono for small labels ("// about") that nod to the developer/automation
+  subject matter.
+- **Signature element**: a small dotted "pipeline" divider (see
+  `src/components/ui/PipelineDivider.jsx`) representing an automation
+  flow, reused across the hero and section breaks.
+
+## Getting started
+
+```bash
+npx create-react-app my-portfolio
+# then copy src/, public/, tailwind.config.js, postcss.config.js,
+# and package.json from this repo into my-portfolio, replacing the defaults
+
+cd my-portfolio
+npm install
+npm start
+```
+
+## Notes
+
+- The contact form is client-side only. Replace `handleSubmit` in
+  `src/components/Contact.jsx` with a real API or email service call.
+- Blog posts are static data in `src/data/blogs.js` — swap in a CMS or
+  MDX pipeline later without changing `Blogs.jsx` or `BlogCard.jsx`.

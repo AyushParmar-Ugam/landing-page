@@ -1,53 +1,46 @@
 import React from "react";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import Section from "./components/layout/Section";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
+import Blogs from "./components/Blogs";
 import Contact from "./components/Contact";
 
 export default function App() {
   return (
     <>
-      <header className="site-header">
-        <div className="container header-inner">
-          <h1 className="logo">Ayush — Web Developer</h1>
-          <nav className="nav">
-            <a href="#hero">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       <main>
-        <section id="hero" className="container section">
+        <Section id="hero">
           <Hero />
-        </section>
+        </Section>
 
-        <section id="about" className="container section">
+        <Section id="about" tone="surface">
           <About />
-        </section>
+        </Section>
 
-        <section id="skills" className="container section">
+        <Section id="skills">
           <Skills />
-        </section>
+        </Section>
 
-        <section id="projects" className="container section">
+        <Section id="projects" tone="surface">
           <Projects />
-        </section>
+        </Section>
 
-        <section id="contact" className="container section">
+        <Section id="blog">
+          <Blogs />
+        </Section>
+
+        <Section id="contact" tone="surface">
           <Contact />
-        </section>
+        </Section>
       </main>
 
-      <footer className="site-footer">
-        <div className="container">
-          <small>© {new Date().getFullYear()} Ayush Parmar. All rights reserved.</small>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

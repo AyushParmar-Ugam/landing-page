@@ -1,0 +1,151 @@
+/* Global styles: keep simple and readable */
+:root{
+  --bg: #f7f9fc;
+  --card: #ffffff;
+  --primary: #2563eb;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #06b6d4;
+  --max-width: 1000px;
+}
+
+* { box-sizing: border-box; }
+html,body,#root { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  line-height: 1.5;
+}
+
+.container {
+  width: 94%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.site-header {
+  background: white;
+  border-bottom: 1px solid #e6eef8;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.header-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 12px 0;
+}
+
+.logo { font-size: 1.1rem; margin: 0; }
+
+.nav a {
+  margin-left: 16px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.nav a:hover { color: var(--text); }
+
+.section { padding: 48px 0; }
+h2, h3, h4 { margin: 0 0 12px; color: var(--text); }
+p { margin: 0 0 16px; color: var(--muted); }
+
+.hero {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  justify-content: space-between;
+}
+.hero-content { flex: 1; }
+.lead { font-size: 1.05rem; color: #334155; margin-bottom: 18px; }
+
+.hero-ctas .btn { margin-right: 10px; }
+
+.avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  background: linear-gradient(135deg,var(--primary),var(--accent));
+  color: white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:32px;
+}
+
+/* Buttons */
+.btn {
+  display:inline-block;
+  padding: 10px 14px;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.btn-outline {
+  background: transparent;
+  border: 1px solid #cfe2ff;
+  color: var(--primary);
+}
+
+/* Grids */
+.grid { display: grid; gap: 20px; grid-template-columns: 1fr 320px; align-items: start; }
+@media (max-width: 800px) {
+  .grid { grid-template-columns: 1fr; }
+  .hero { flex-direction: column; align-items: flex-start; }
+}
+
+/* Skills */
+.skills-list { list-style: none; padding: 0; margin: 0; }
+.skill { margin-bottom: 14px; }
+.skill-header { display:flex; justify-content:space-between; font-weight:600; margin-bottom:6px; color:#0f172a; }
+.skill-bar { background: #e6eef8; border-radius: 6px; height: 10px; overflow:hidden; }
+.skill-fill { height:100%; background: linear-gradient(90deg,var(--primary),var(--accent)); }
+
+/* Projects */
+.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+@media (max-width: 900px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; } }
+
+.project-card {
+  background: var(--card);
+  padding: 14px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+}
+.tag {
+  font-size: 12px;
+  padding: 6px 8px;
+  background: #eef2ff;
+  color: #4338ca;
+  border-radius: 999px;
+  margin-right: 6px;
+}
+.project-meta { display:flex; justify-content:space-between; align-items:center; margin-top: 10px; }
+
+/* Contact form */
+.contact-grid { display:grid; grid-template-columns: 1fr 420px; gap: 20px; align-items:start; }
+@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-form { background: var(--card); padding: 14px; border-radius: 10px; box-shadow: 0 6px 18px rgba(15,23,42,0.05); }
+.contact-form label { display:block; margin-bottom: 10px; font-size: 14px; color: #0f172a; }
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e6eef8;
+  border-radius: 8px;
+  margin-top: 6px;
+  font-size: 14px;
+}
+.contact-form button { margin-top: 8px; }
+
+/* Footer */
+.site-footer { padding: 18px 0; border-top: 1px solid #e6eef8; background: white; text-align: center; margin-top: 40px; color: var(--muted); font-size: 13px; }
